@@ -1,0 +1,222 @@
+/* ======== FONTS ======== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ======== ROOT ======== */
+
+:root {
+    /* ======== FONTS ======== */
+
+    --font-poppins: 'Poppins', sans-serif;
+    --font-system: system-ui, sans-serif;
+
+    /* ======== COLORS ======== */
+
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0);
+    --dark-grey: rgb(35, 35, 35);
+}
+
+/* ======== MAIN ======== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: var(--font-system);
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+body::before {
+    --size: 45px;
+    --line: color-mix(in hsl, white, transparent 80%);
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) calc(var(--size) * 0.36) 50% / var(--size) var(--size),
+        linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0% calc(var(--size) * 0.32) / var(--size) var(--size);
+    mask: linear-gradient(135deg, transparent 25%, white);
+    pointer-events: none;
+    z-index: -1;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 50px;
+    margin: 0;
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    margin: 0;
+}
+
+/* ======== HERO SECTIONS ======== */
+
+.hero-text {
+    color: white;
+    overflow-wrap: break-word;
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    text-align: center;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 150px;
+    width: 40%;
+    margin: 0;
+}
+
+.button-holder {
+    display: flex;
+    gap: 3rem;
+    position: absolute;
+    top: 250px;
+}
+
+/* ======== BUTTONS ======== */
+
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-system);
+
+    padding: 12px 24px;
+    font-weight: 600;
+    color: #fff;
+    background: #000000;
+    outline: 1px solid white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.main-button svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.4s;
+}
+
+.main-button:hover svg {
+    transform: translateX(3px);
+}
+
+.main-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+
+    transform: translate(6px, 6px);
+    transition: all 0.25s ease;
+
+    z-index: -1;
+}
+
+.main-button:active::before {
+    transform: translate(0, 0);
+}
+
+/* ======== DROPDOWN ======== */
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 8rem;
+    margin-top: 10px;
+    list-style: none;
+    padding: 12px 12px;
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid white;
+    min-width: 150px;
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: all 0.25s ease;
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-option {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-system);
+    font-weight: 500;
+    border: none;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    transition: all 0.25s ease;
+}
+
+.dropdown-option:hover {
+    background: var(--dark-grey);
+}
+
+/* ======== SCROLLBAR STYLES ======== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* ======== FOOTER ======== */
+
+footer {
+    position: absolute;
+    opacity: 0.3;
+    font-family: var(--font-system);
+    white-space: nowrap;
+    text-align: center;
+
+    font-weight: 500;
+
+    top: 90%;
+    left: 44%;
+}
