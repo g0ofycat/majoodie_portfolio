@@ -11,6 +11,8 @@
     <!-- ======== FILES ======== -->
 
     <link rel="stylesheet" href="style.css" />
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
     <script type="module" src="init.js" defer></script>
 </head>
 
@@ -20,8 +22,8 @@
             professional focus since 2021.</i></p>
 
     <div class="button-holder">
-        <button class="main-button">
-            <span>Work</span>
+        <button class="main-button" onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })">
+            <span>Gallery</span>
             <svg viewBox="0 0 20 20" fill="currentColor">
                 <path
                     d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" />
@@ -81,17 +83,76 @@
         <i>If you're interested in collaborating, reach out to create something exceptional together!</i>
     </p>
 
-    <div class="header-title">Recent Work</div>
+    <div class="header-title" id="gallery">Gallery</div>
     <div class="header-subtitle"><i>A selection of my latest projects</i></div>
 
-    <div class="cards-container">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+    <div class="gallery-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="images/work/image_1.png">
+                    </div>
+                    <h3 class="gallery-title">1</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+                <div class="gallery-card active">
+                    <div class="gallery-image">
+                        <img src="images/work/image_2.png">
+                    </div>
+                    <h3 class="gallery-title">2</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="images/work/image_3.png">
+                    </div>
+                    <h3 class="gallery-title">3</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="images/work/image_4.png">
+                    </div>
+                    <h3 class="gallery-title">4</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="images/work/image_5.png">
+                    </div>
+                    <h3 class="gallery-title">5</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="images/work/image_6.png">
+                    </div>
+                    <h3 class="gallery-title">6</h3>
+                    <p class="gallery-subtitle">Description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+                Previous
+            </button>
+            <button class="carousel-btn" id="nextBtn">
+                Next
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="carousel-indicators" id="indicators"></div>
     </div>
+
+    <div class="cursor-follower"></div>
 
     <footer aria-hidden="true">
         <p><i>© 2025 Majoodie Portfolio</i></p>

@@ -73,6 +73,27 @@ h1 {
     margin-bottom: -15rem;
 }
 
+/* ======== CURSOR ======== */
+
+.cursor-follower {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-follower.small {
+    width: 15px;
+    height: 15px;
+    opacity: 0.8;
+}
+
 /* ======== HERO SECTIONS ======== */
 
 .hero-text {
@@ -210,7 +231,6 @@ h1 {
 
 .header-subtitle {
     color: var(--white);
-    ;
     font-weight: 300;
     font-size: 1rem;
     position: relative;
@@ -224,7 +244,6 @@ h1 {
     width: 500px;
     height: 1px;
     background: var(--white);
-    ;
     margin-top: 8px;
 }
 
@@ -270,6 +289,163 @@ h1 {
         gap: 1.5rem;
         padding: 1rem;
     }
+}
+
+/* ======== GALLERY ======== */
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: min(120rem, 90vw);
+    margin: 0 auto;
+    padding: clamp(1rem, 3vh, 2rem) 0;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: clamp(1rem, 3vh, 2rem) 0;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: clamp(1rem, 2vw, 2rem);
+    padding: 0 calc(50% - 24vw);
+}
+
+.gallery-card {
+    flex: 0 0 min(600px, 50vw);
+    background: var(--very-dark-grey);
+    border: 1px solid var(--dark-grey);
+    border-radius: clamp(8px, 1vw, 12px);
+    padding: clamp(2rem, 4vh, 3rem) clamp(1.5rem, 3vw, 2rem);
+    min-height: clamp(300px, 40vh, 400px);
+    box-sizing: border-box;
+    color: var(--white);
+    font-family: var(--font-poppins);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    opacity: 0.3;
+    transform: scale(0.85);
+}
+
+.gallery-card.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 clamp(4px, 1vh, 8px) clamp(12px, 2vh, 24px) rgba(0, 0, 0, 0.5);
+}
+
+.gallery-image {
+    flex: 1;
+    width: 100%;
+    margin-bottom: clamp(1rem, 2vh, 1.5rem);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-grey);
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 0 clamp(0.5rem, 1vh, 0.75rem) 0;
+    text-align: center;
+}
+
+.gallery-subtitle {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.carousel-controls {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    justify-content: center;
+    margin-top: clamp(1rem, 3vh, 2rem);
+}
+
+.carousel-btn {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: clamp(10px, 1.5vh, 12px) clamp(20px, 3vw, 24px);
+    font-family: var(--font-system);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1vw, 8px);
+}
+
+.carousel-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    transform: translate(clamp(4px, 0.5vw, 6px), clamp(4px, 0.5vw, 6px));
+    transition: all 0.25s ease;
+    z-index: -1;
+}
+
+.carousel-btn:hover::before {
+    transform: translate(clamp(2px, 0.25vw, 3px), clamp(2px, 0.25vw, 3px));
+}
+
+.carousel-btn:active::before {
+    transform: translate(0, 0);
+}
+
+.carousel-btn:disabled {
+    cursor: not-allowed;
+}
+
+.carousel-btn svg {
+    width: clamp(16px, 2.5vw, 20px);
+    height: clamp(16px, 2.5vw, 20px);
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: clamp(6px, 1vw, 8px);
+    justify-content: center;
+    margin-top: clamp(1rem, 2vh, 1.5rem);
+}
+
+.indicator {
+    width: clamp(6px, 1vw, 8px);
+    height: clamp(6px, 1vw, 8px);
+    border-radius: 50%;
+    background: var(--grey);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.indicator.active {
+    background: var(--white);
+    width: clamp(20px, 3vw, 24px);
+    border-radius: clamp(3px, 0.5vw, 4px);
 }
 
 /* ======== SCROLLBAR STYLES ======== */
