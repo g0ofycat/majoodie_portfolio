@@ -76,8 +76,8 @@ export const initGallery = () => {
 export const initCursor = () => {
 	const cursorFollower = document.querySelector('.cursor-follower');
 	const speed = 0.15;
-	let mouseX = 0;
-	let mouseY = 0;
+	let mouseX = window.innerWidth / 2;
+	let mouseY = window.innerHeight / 2;
 	let followerX = 0;
 	let followerY = 0;
 
@@ -108,6 +108,14 @@ export const initCursor = () => {
 		el.addEventListener('mouseleave', () => {
 			cursorFollower.classList.remove('small');
 		});
+	});
+
+	document.addEventListener('mouseenter', () => {
+		cursorFollower.style.opacity = '1';
+	});
+
+	document.addEventListener('mouseleave', () => {
+		cursorFollower.style.opacity = '0';
 	});
 };
 

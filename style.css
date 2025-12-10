@@ -96,12 +96,18 @@ h1 {
     z-index: 999;
     box-sizing: border-box;
     border-radius: 8px;
+    overflow: hidden;
 }
 
 .topbar-img {
     width: 28px;
     height: 28px;
     object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.topbar-img:hover {
+    transform: scale(1.25);
 }
 
 .topbar>p {
@@ -149,12 +155,17 @@ h1 {
 
     opacity: 1;
     margin-left: clamp(10px, 2vw, 20px);
+    flex: 1 1 0;
+    max-width: 150px;
+    min-width: 50px;
+    margin: 0 0.5vw;
     height: 32px;
     padding: 0 clamp(8px, 1.5vw, 12px);
 
     background: var(--no-bg);
     border-radius: 6px;
     cursor: pointer;
+    white-space: nowrap;
     transition: all 0.3s ease;
 
     font-family: var(--font-system);
@@ -166,23 +177,23 @@ h1 {
 }
 
 .topbar.scrolled .topbar-button:nth-child(3) {
-    transition: all 0.3s ease 0.05s;
+    transition: all 0.3s ease;
 }
 
 .topbar.scrolled .topbar-button:nth-child(4) {
-    transition: all 0.3s ease 0.1s;
+    transition: all 0.3s ease;
 }
 
 .topbar.scrolled .topbar-button:nth-child(5) {
-    transition: all 0.3s ease 0.15s;
+    transition: all 0.3s ease;
 }
 
 .topbar.scrolled .topbar-button:nth-child(6) {
-    transition: all 0.3s ease 0.2s;
+    transition: all 0.3s ease;
 }
 
 .topbar.scrolled .topbar-button:nth-child(7) {
-    transition: all 0.3s ease 0.25s;
+    transition: all 0.3s ease;
 }
 
 .topbar-button p {
