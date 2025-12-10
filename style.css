@@ -117,7 +117,7 @@ h1 {
     white-space: nowrap;
 }
 
-.topbar > p {
+.topbar>p {
     color: var(--white);
     font-family: var(--font-poppins);
     font-weight: 600;
@@ -125,12 +125,12 @@ h1 {
     margin: 0;
     padding-left: 1vw;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease, width 0.3s ease, padding 0.3s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.topbar.scrolled > p {
+.topbar.scrolled>p {
     opacity: 0;
     width: 0;
     padding-left: 0;
@@ -200,7 +200,7 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .topbar > p {
+    .topbar>p {
         display: none;
     }
 }
