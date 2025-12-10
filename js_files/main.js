@@ -141,3 +141,20 @@ export const initLenis = () => {
 		});
 	}
 };
+
+export const initTopbar = () => {
+	let lastScroll = 0;
+
+	window.addEventListener('scroll', () => {
+		const currentScroll = window.pageYOffset;
+		const topbar = document.querySelector('.topbar');
+
+		if (currentScroll > 50) {
+			topbar.classList.add('scrolled');
+		} else {
+			topbar.classList.remove('scrolled');
+		}
+
+		lastScroll = currentScroll;
+	});
+}

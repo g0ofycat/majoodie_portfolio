@@ -12,6 +12,8 @@
 
     /* ======== COLORS ======== */
 
+    --no-bg: rgb(255, 255, 255, 0);
+
     --white: rgb(255, 255, 255);
     --black: rgb(0, 0, 0);
     --dark-grey: rgb(35, 35, 35);
@@ -54,7 +56,7 @@ h1 {
     color: var(--white);
     font-size: 2.5rem;
     position: absolute;
-    top: 50px;
+    top: 100px;
     margin: 0;
 }
 
@@ -73,6 +75,136 @@ h1 {
     margin-bottom: -15rem;
 }
 
+/* ======== TOPBAR ======== */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 900px);
+    height: 50px;
+
+    padding: clamp(0.75rem, 2vh, 1rem) clamp(1rem, 2vw, 1.5rem);
+
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--dark-grey);
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 999;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.topbar-img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+}
+
+.topbar>p {
+    color: var(--white);
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    margin: 0;
+    padding-left: 1vw;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.topbar > p {
+    color: var(--white);
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    margin: 0;
+    padding-left: 1vw;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease, width 0.3s ease, padding 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.topbar.scrolled > p {
+    opacity: 0;
+    width: 0;
+    padding-left: 0;
+}
+
+.topbar.scrolled>p {
+    opacity: 0;
+    width: 0;
+    padding-left: 0;
+}
+
+.topbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 1;
+    margin-left: clamp(10px, 2vw, 20px);
+    height: 32px;
+    padding: 0 clamp(8px, 1.5vw, 12px);
+
+    background: var(--no-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    font-family: var(--font-system);
+    color: var(--white);
+}
+
+.topbar.scrolled .topbar-button {
+    margin-left: clamp(5px, 1vw, 10px);
+}
+
+.topbar.scrolled .topbar-button:nth-child(3) {
+    transition: all 0.3s ease 0.05s;
+}
+
+.topbar.scrolled .topbar-button:nth-child(4) {
+    transition: all 0.3s ease 0.1s;
+}
+
+.topbar.scrolled .topbar-button:nth-child(5) {
+    transition: all 0.3s ease 0.15s;
+}
+
+.topbar.scrolled .topbar-button:nth-child(6) {
+    transition: all 0.3s ease 0.2s;
+}
+
+.topbar.scrolled .topbar-button:nth-child(7) {
+    transition: all 0.3s ease 0.25s;
+}
+
+.topbar-button p {
+    font-family: var(--font-poppins);
+    padding: 0;
+    font-weight: 500;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    margin: 0;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.topbar-button:hover {
+    background-color: var(--dark-grey);
+}
+
+@media (max-width: 768px) {
+    .topbar > p {
+        display: none;
+    }
+}
+
 /* ======== CURSOR ======== */
 
 .cursor-follower {
@@ -84,7 +216,7 @@ h1 {
     pointer-events: none;
     z-index: 9999;
     transition: all 0.2s ease;
-    opacity: 0.6;
+    opacity: 0;
     transform: translate(-50%, -50%);
 }
 
@@ -92,6 +224,12 @@ h1 {
     width: 15px;
     height: 15px;
     opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .cursor-follower {
+        opacity: 0;
+    }
 }
 
 /* ======== HERO SECTIONS ======== */
@@ -104,7 +242,7 @@ h1 {
     text-align: center;
     font-size: clamp(0.875rem, 2vw, 1rem);
     position: absolute;
-    top: clamp(120px, 15vh, 150px);
+    top: clamp(200px, 20vh, 300px);
     width: min(90%, 600px);
     max-width: 600px;
     margin: 0;
@@ -115,7 +253,7 @@ h1 {
     display: flex;
     gap: 3rem;
     position: absolute;
-    top: 250px;
+    top: 300px;
 }
 
 /* ======== BUTTONS ======== */
@@ -128,7 +266,7 @@ h1 {
     padding: 12px 24px;
     font-weight: 600;
     color: var(--white);
-    background: #000000;
+    background: var(--black);
     outline: 1px solid var(--white);
     cursor: pointer;
     border: none;
@@ -222,17 +360,16 @@ h1 {
 .header-title {
     color: var(--white);
     font-weight: 600;
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     position: relative;
     text-align: center;
     margin: 0;
-    margin-top: 350px;
 }
 
 .header-subtitle {
     color: var(--white);
     font-weight: 300;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.2rem);
     position: relative;
     text-align: center;
     margin: 0;
@@ -241,10 +378,10 @@ h1 {
 .header-title::after {
     content: '';
     display: block;
-    width: 500px;
+    width: clamp(150px, 40vw, 500px);
     height: 1px;
     background: var(--white);
-    margin-top: 8px;
+    margin: 8px auto 0;
 }
 
 /* ======== CARDS ======== */
@@ -275,6 +412,27 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform-style: preserve-3d;
+}
+
+.card-title {
+    position: absolute;
+    padding: 2vh 2vw;
+    top: 0;
+    left: 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    color: var(--grey);
+    margin: 0;
 }
 
 .card:hover {
@@ -319,7 +477,7 @@ h1 {
 .gallery-card {
     flex: 0 0 min(600px, 50vw);
     background: var(--very-dark-grey);
-    border: 1px solid var(--dark-grey);
+    border: 1px solid var(--very-dark-grey);
     border-radius: clamp(8px, 1vw, 12px);
     padding: clamp(2rem, 4vh, 3rem) clamp(1.5rem, 3vw, 2rem);
     min-height: clamp(300px, 40vh, 400px);

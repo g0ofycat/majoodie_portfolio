@@ -14,9 +14,36 @@
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
     <script type="module" src="init.js" defer></script>
+
+    <!-- ======== META TAGS ======== -->
+
+    <meta property="og:title" content="majoodie's portfolio">
+    <meta property="og:description" content="Professional Roblox Builder since 2018">
+    <meta property="og:image" content="https://g0ofycat.github.io/majoodie_portfolio/images/favicon.jpg">
 </head>
 
 <body>
+    <div class="topbar">
+        <img src="./images/favicon.png" alt="logo" class="topbar-img">
+        <p>majoodie</p>
+
+        <div class="topbar-button" onclick="document.getElementById('about-me').scrollIntoView({ behavior: 'smooth' })">
+            <p>About Me</p>
+        </div>
+        <div class="topbar-button" onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })">
+            <p>Gallery</p>
+        </div>
+        <div class="topbar-button" onclick="document.getElementById('why-me').scrollIntoView({ behavior: 'smooth' })">
+            <p>Why Me</p>
+        </div>
+        <div class="topbar-button" onclick="document.getElementById('prices').scrollIntoView({ behavior: 'smooth' })">
+            <p>Prices</p>
+        </div>
+        <div class="topbar-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+            <p>Contact</p>
+        </div>
+    </div>
+
     <h1>majoodie</h1>
     <p class="hero-text"><i>Roblox architect specializing in custom builds in Roblox Studio since 2018, with a
             professional focus since 2021.</i></p>
@@ -73,7 +100,7 @@
         </div>
     </div>
 
-    <div class="header-title">About Me</div>
+    <div class="header-title" id="about-me" style="margin-top: 350px;">About Me</div>
 
     <p class="paragraph">I'm a <b>16-year-old</b> Roblox architect specializing in <b>custom builds in Roblox Studio</b>
         since <strong>2018</strong>, with a professional focus since <strong>2021</strong>. I’ve completed around <b>120
@@ -83,7 +110,7 @@
         <i>If you're interested in collaborating, reach out to create something exceptional together!</i>
     </p>
 
-    <div class="header-title" id="gallery">Gallery</div>
+    <div class="header-title" id="gallery" style="margin-top: 350px;">Gallery</div>
     <div class="header-subtitle"><i>A selection of my latest projects</i></div>
 
     <div class="gallery-container">
@@ -151,6 +178,33 @@
 
         <div class="carousel-indicators" id="indicators"></div>
     </div>
+
+    <div class="header-title" id="why-me">Why Me</div>
+    <div class="header-subtitle"><i>Discover the benefits of partnering with me</i></div>
+
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-title">Card 1</div>
+            <div class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Card 2</div>
+            <div class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Card 3</div>
+            <div class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Card 4</div>
+            <div class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+    </div>
+
+    <div class="header-title" id="prices">Prices</div>
+    <div class="header-subtitle"><i>Prices depend on work scope (May need a quote)</i></div>
+
+    <div class="header-title" id="contact">Contact</div>
 
     <div class="cursor-follower"></div>
 
